@@ -41,7 +41,7 @@ namespace Assets.Code
             AfterBurnerModifier = 50;
             StrafeModifier = 30;
 
-            MouseSensitivity = new Vector2(60, 60);
+            MouseSensitivity = new Vector2(700, 700);
             UseRelativeMovement = false;
 
             _player = player;
@@ -100,7 +100,7 @@ namespace Assets.Code
 
             var mouseMovement = (MousePosition - (new Vector3(Screen.width / 2f, Screen.height / 2f))) * .2f;
 
-            if (mouseMovement.sqrMagnitude >= 6)
+            if (mouseMovement.sqrMagnitude >= 1)
             {
                 _player.transform.Rotate(new Vector3(-mouseMovement.y, mouseMovement.x, 0) * RotationSpeed);
             }

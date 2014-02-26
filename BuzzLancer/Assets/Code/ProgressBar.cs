@@ -2,11 +2,11 @@
 
 namespace Assets.Code
 {
-    class ProgressBar
+    public class ProgressBar
     {
-        private readonly GameObject _gameObject;
+        public GameObject _gameObject;
 
-        private float _value;
+        public float _value;
 
         public Color BackgroundColor {get; set;}
         public Color ForegroundColor {get; set;}
@@ -21,7 +21,10 @@ namespace Assets.Code
         public float Value
         {
             get { return _value;}
-            set {_value = Mathf.Clamp(value, 0, MaxValue);}
+            set
+            {
+                _value = Mathf.Clamp(value, 0, MaxValue);
+            }
         }
 
         public ProgressBar()

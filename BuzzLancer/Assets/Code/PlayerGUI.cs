@@ -2,7 +2,7 @@
 
 namespace Assets.Code
 {
-    class PlayerGUI
+    public class PlayerGUI
     {
         private readonly PlayerController _controller;
         private readonly Player _player;
