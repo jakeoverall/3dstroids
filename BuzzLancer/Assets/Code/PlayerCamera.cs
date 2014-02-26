@@ -7,13 +7,11 @@ namespace Assets.Code
         private readonly Player _player;
         private readonly Camera _camera;
 
-        public float MovementDamp { get; set;  }
-        public float RotationDamp { get; set;  }
-        
+        public float MovementDamp { get; set; }
+
         public PlayerCamera(Player player, Camera camera)
         {
-            MovementDamp = 8;
-            RotationDamp = .5f;
+            MovementDamp = 15;
 
             _player = player;
             _camera = camera;
@@ -24,8 +22,7 @@ namespace Assets.Code
             var position = _player.transform.TransformPoint(0, .5f, -5);
             _camera.transform.position = Vector3.Lerp(_camera.transform.position, position, Time.deltaTime * MovementDamp);
 
-            var rotation = Quaternion.LookRotation(_player.transform.position - _camera.transform.position, _player.transform.up);
-            _camera.transform.rotation = Quaternion.Slerp(_player.transform.rotation, rotation, Time.deltaTime * RotationDamp);
+            _camera.transform.LookAt(_player.transform.TransformPoint(0, 0, 50), _player.transform.up);
         }
     }
 }
