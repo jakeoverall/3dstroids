@@ -41,7 +41,7 @@ namespace Assets.Code
             AfterBurnerModifier = 50;
             StrafeModifier = 30;
 
-            MouseSensitivity = new Vector2(700, 700);
+            MouseSensitivity = new Vector2(10, 10);
             UseRelativeMovement = false;
 
             _player = player;

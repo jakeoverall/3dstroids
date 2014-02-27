@@ -5,7 +5,6 @@ namespace Assets.Code
     public class Projectile : MonoBehaviour
     {
         private float _timeToLive;
-
         private Vector3 _direction;
         private ProjectileWeapon _weapon;
 
@@ -27,6 +26,17 @@ namespace Assets.Code
             }
 
             transform.Translate(_direction * _weapon.Speed * Time.deltaTime, Space.World);
+        }
+
+        public void OnTriggerEnter(Collider collision)
+        {
+            var destroyable = collision.GetComponent<Destroyable>();
+
+            if (destroyable == null)
+                return;
+
+            destroyable.TakeDamage(_weapon.Damage, gameObject);
+            Destroy(gameObject);
         }
     }
 }

@@ -4,9 +4,9 @@ namespace Assets.Code
 {
     public class ProgressBar
     {
-        public GameObject _gameObject;
+        private readonly GameObject _gameObject;
 
-        public float _value;
+        private float _value;
 
         public Color BackgroundColor {get; set;}
         public Color ForegroundColor {get; set;}
